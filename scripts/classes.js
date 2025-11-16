@@ -1,13 +1,17 @@
 export class Ship {
-  constructor(length, hit, sunk) {
+  constructor(length) {
     this.length = length;
-    this.hit = hit;
-    this.sunk = sunk;
   }
 
-  hit() {}
+  #hits = 0;
 
-  isSunk() {}
+  hit() {
+    this.#hits++;
+  }
+
+  isSunk() {
+    return this.#hits === this.length;
+  }
 }
 
 export class Gameboard {
