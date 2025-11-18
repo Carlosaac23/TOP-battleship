@@ -13,6 +13,10 @@ export class Ship {
   isSunk() {
     return this.#hits === this.#length;
   }
+
+  getLength() {
+    return this.#length;
+  }
 }
 
 export class Gameboard {
@@ -25,7 +29,19 @@ export class Gameboard {
   }
 
   // position is an array [row, col]
-  placeShip(ship, position, orientation) {}
+  placeShip(ship, position, orientation) {
+    const [row, col] = position;
+
+    for (let i = 0; i < ship.getLength(); i++) {
+      const currentRow = orientation === 'vertical' ? row + i : row;
+      const currentCol = orientation === 'horizontal' ? col + i : col;
+
+      const cell = this.getCell(currentRow, currentCol);
+
+      cell.state = 'ship';
+      cell.ship = ship;
+    }
+  }
 
   getCell(row, col) {
     return this.board[row][col];
