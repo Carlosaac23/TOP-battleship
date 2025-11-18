@@ -32,6 +32,15 @@ export class Gameboard {
   placeShip(ship, position, orientation) {
     const [row, col] = position;
 
+    if (
+      (orientation === 'horizontal' &&
+        col + ship.getLength() >= this.board.length) ||
+      (orientation === 'vertical' &&
+        row + ship.getLength() >= this.board.length)
+    ) {
+      throw new Error('Invalid position');
+    }
+
     for (let i = 0; i < ship.getLength(); i++) {
       const currentRow = orientation === 'vertical' ? row + i : row;
       const currentCol = orientation === 'horizontal' ? col + i : col;
