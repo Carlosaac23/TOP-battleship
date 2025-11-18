@@ -16,12 +16,20 @@ export class Ship {
 }
 
 export class Gameboard {
-  constructor() {}
+  constructor() {
+    this.board = new Array(10).fill(null).map(() => {
+      return new Array(10)
+        .fill(null)
+        .map(() => ({ state: 'empty', ship: null }));
+    });
+  }
 
-  // initialPosition is an array [row, col]
-  placeShip(ship, initialPosition, direction) {}
+  // position is an array [row, col]
+  placeShip(ship, position, orientation) {}
 
-  getCell(row, col) {}
+  getCell(row, col) {
+    return this.board[row][col];
+  }
 
   receiveAttack() {}
 }
