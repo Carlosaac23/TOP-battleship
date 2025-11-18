@@ -70,3 +70,12 @@ test('Place a vertical ship of length 4 in a valid position', () => {
   expect(cell4.state).toBe('ship');
   expect(cell4.ship).toBe(ship);
 });
+
+test('Place a ship of length 3 in a invalid position', () => {
+  const ship = new Ship(3);
+  const board = new Gameboard();
+
+  expect(() => {
+    board.placeShip(ship, [10, 11], 'vertical');
+  }).toThrow('Invalid position');
+});
