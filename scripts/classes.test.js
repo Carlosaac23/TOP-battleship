@@ -164,7 +164,8 @@ test('Computer can attack', () => {
 
   humanPlayer.board.placeShip(ship, [0, 0], 'horizontal');
 
-  const result = computerPlayer.attack(humanPlayer.board);
+  const result = computerPlayer.attack(humanPlayer.board); // hit or miss
+  const results = ['hit', 'miss'];
 
-  expect(['hit', 'miss']).toContain(result);
+  expect(results).toContain(result);
 });
