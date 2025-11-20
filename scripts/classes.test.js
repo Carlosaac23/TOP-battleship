@@ -1,4 +1,4 @@
-import { Gameboard, Ship } from './classes.js';
+import { Gameboard, Player, Ship } from './classes.js';
 
 // Testing Ship class
 test('A new ship should not be sunk', () => {
@@ -111,4 +111,41 @@ test('Hitting an empty cell', () => {
   // Verify cell state changed
   const cell = board.getCell(8, 7);
   expect(cell.state).toBe('miss');
+});
+
+// Testing Player class
+test('A player should have a name and a gameboard', () => {
+  const player = new Player('Carlos');
+
+  expect(player.name).toBe('Carlos');
+  expect(player.board).toBeInstanceOf(Gameboard);
+});
+
+test('A player can attack other player', () => {
+  const player1 = new Player('John');
+  const player2 = new Player('Ramsey');
+  const ship = new Ship(2);
+
+  // Player2 place a ship
+  player2.board.placeShip(ship, [4, 5], 'horizontal');
+
+  // Player1 attack that ship
+  // attack method receives (oponentBoard, oponent coordinates -> row, col)
+  const attack = player1.attack(player2.board, 4, 5);
+
+  expect(attack).toBe('hit');
+});
+
+test('A player can attack other player (a miss hit)', () => {
+  const player1 = new Player('John');
+  const player2 = new Player('Ramsey');
+  const ship = new Ship(3);
+
+  // Player2 place a ship
+  player2.board.placeShip(ship, [2, 5], 'horizontal');
+
+  // Player1 attack other ceel
+  const attack = player1.attack(player2.board, 7, 8);
+
+  expect(attack).toBe('miss');
 });
