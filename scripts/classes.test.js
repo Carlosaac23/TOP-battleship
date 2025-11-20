@@ -97,3 +97,18 @@ test('Hitting a ship', () => {
   // Verify if ship is sunk because it's length is one a received one shot
   expect(ship.isSunk()).toBe(true);
 });
+
+test('Hitting an empty cell', () => {
+  const ship = new Ship(2);
+  const board = new Gameboard();
+
+  board.placeShip(ship, [4, 6], 'vertical');
+  const result = board.receiveAttack(8, 7);
+
+  // Verify the method returns 'miss' string
+  expect(result).toBe('miss');
+
+  // Verify cell state changed
+  const cell = board.getCell(8, 7);
+  expect(cell.state).toBe('miss');
+});
