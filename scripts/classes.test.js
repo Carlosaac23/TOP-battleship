@@ -79,3 +79,21 @@ test('Place a ship of length 3 in a invalid position', () => {
     board.placeShip(ship, [10, 11], 'vertical');
   }).toThrow('Invalid position');
 });
+
+test('Hitting a ship', () => {
+  const ship = new Ship(1);
+  const board = new Gameboard();
+
+  board.placeShip(ship, [4, 6], 'horizontal');
+  const result = board.receiveAttack(4, 6);
+
+  // Verify the method returns 'hit' string
+  expect(result).toBe('hit');
+
+  // Verify cell state changed
+  const cell = board.getCell(4, 6);
+  expect(cell.state).toBe('hit');
+
+  // Verify if ship is sunk because it's length is one a received one shot
+  expect(ship.isSunk()).toBe(true);
+});
