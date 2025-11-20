@@ -1,4 +1,4 @@
-import { Gameboard, Player, Ship } from './classes.js';
+import { ComputerPlayer, Gameboard, Player, Ship } from './classes.js';
 
 // Testing Ship class
 test('A new ship should not be sunk', () => {
@@ -148,4 +148,23 @@ test('A player can attack other player (a miss hit)', () => {
   const attack = player1.attack(player2.board, 7, 8);
 
   expect(attack).toBe('miss');
+});
+
+// Testing ComputerPlayer class
+test('A computerPlayer should have a gameboard', () => {
+  const computerPlayer = new ComputerPlayer();
+
+  expect(computerPlayer.board).toBeInstanceOf(Gameboard);
+});
+
+test('Computer can attack', () => {
+  const humanPlayer = new Player('Carlos');
+  const computerPlayer = new ComputerPlayer();
+  const ship = new Ship(3);
+
+  humanPlayer.board.placeShip(ship, [0, 0], 'horizontal');
+
+  const result = computerPlayer.attack(humanPlayer.board);
+
+  expect(['hit', 'miss']).toContain(result);
 });
