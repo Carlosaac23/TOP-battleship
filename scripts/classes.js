@@ -71,5 +71,24 @@ export class Gameboard {
 }
 
 export class Player {
-  constructor() {}
+  constructor(name) {
+    this.name = name;
+    this.board = new Gameboard();
+  }
+
+  attack(enemyBoard, row, col) {
+    return enemyBoard.receiveAttack(row, col);
+  }
+}
+
+export class ComputerPlayer {
+  constructor() {
+    this.board = new Gameboard();
+  }
+
+  attack(enemyBoard) {
+    const randomRow = Math.floor(Math.random() * 10);
+    const randomCol = Math.floor(Math.random() * 10);
+    return enemyBoard.receiveAttack(randomRow, randomCol);
+  }
 }
