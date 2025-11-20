@@ -56,7 +56,18 @@ export class Gameboard {
     return this.board[row][col];
   }
 
-  receiveAttack() {}
+  receiveAttack(row, col) {
+    const cell = this.getCell(row, col);
+
+    if (cell.state === 'ship') {
+      cell.state = 'hit';
+      cell.ship.hit();
+      return cell.state;
+    } else if (cell.state === 'empty') {
+      cell.state = 'miss';
+      return cell.state;
+    }
+  }
 }
 
 export class Player {
