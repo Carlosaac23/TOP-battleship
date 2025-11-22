@@ -1,5 +1,5 @@
-import { Gameboard, Player, Ship } from './classes.js';
+import { Gameboard, Player, Ship, ComputerPlayer } from './classes.js';
 
 const testShip = new Ship();
-const testGameboard = new Gameboard();
-const testPlayer = new Player();
+const testPlayer = new Player('Carlos');
+const testComputerPlayer = new ComputerPlayer();
