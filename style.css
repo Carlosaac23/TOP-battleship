@@ -14,4 +14,40 @@ html {
 
 body {
   font-family: 'Inter', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.4rem;
+}
+
+.title {
+  margin: 2.4rem 0;
+  font-size: 3rem;
+  letter-spacing: 0.8px;
+}
+
+.container {
+  width: 100%;
+}
+
+.start-game {
+  display: block;
+  margin: 0 auto;
+  border: none;
+  border-radius: 6px;
+  padding: 1rem 2rem;
+  font-weight: bold;
+  font-size: 1.7rem;
+  cursor: pointer;
+  background-color: #1f1f1f;
+  color: #ededed;
+  transition: transform 0.3s ease-out, opacity 0.15s ease-out;
+}
+
+.start-game:hover {
+  opacity: 0.92;
+}
+
+.start-game:active {
+  transform: scale(0.97);
 }
