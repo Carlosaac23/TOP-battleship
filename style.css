@@ -51,3 +51,20 @@ body {
 .start-game:active {
   transform: scale(0.97);
 }
+
+.game-container {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(10, 1fr);
+}
+
+.board {
+  border: 1px solid red;
+}
+
+.cell {
+  border: 1px solid #1f1f1f;
+  border-radius: 2px;
+  background-color: #ededed;
+  padding: 1rem;
+}
