@@ -5,12 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Battleship</title>
     <link rel="stylesheet" href="style.css" />
-    <script src="main.js" defer></script>
+    <script src="./scripts/main.js" type="module" defer></script>
   </head>
   <body>
     <h1 class="title">Battleship</h1>
     <div class="container">
       <button class="start-game">Start Game</button>
+    </div>
+    <div class="game-container">
+      <div style="display: none" class="player__container">
+        <h2 class="player__container-name"></h2>
+        <div class="player__container-board"></div>
+      </div>
+
+      <div class="computer__container"></div>
     </div>
   </body>
 </html>
