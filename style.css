@@ -21,7 +21,7 @@ body {
 }
 
 .title {
-  margin: 2.4rem 0;
+  margin: 2rem 0;
   font-size: 3rem;
   letter-spacing: 0.8px;
 }
@@ -43,6 +43,10 @@ body {
   background-color: #1f1f1f;
   color: #ededed;
   transition: transform 0.3s ease-out, opacity 0.15s ease-out;
+}
+
+.restart-game-btn {
+  margin: 2rem 0;
 }
 
 .start-game-btn:hover,
@@ -83,7 +87,6 @@ body {
 .computer__container {
   width: 80%;
   flex-direction: column;
-  border: 1px solid blue;
 }
 
 .cell {
