@@ -75,7 +75,8 @@ body {
   margin-bottom: 1.6rem;
 }
 
-.player__container-board {
+.player__container-board,
+.computer__container-board {
   grid-template-columns: repeat(10, 1fr);
 }
 
