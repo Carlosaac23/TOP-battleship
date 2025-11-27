@@ -30,7 +30,8 @@ body {
   width: 100%;
 }
 
-.start-game {
+.start-game-btn,
+.restart-game-btn {
   display: block;
   margin: 0 auto;
   border: none;
@@ -44,11 +45,13 @@ body {
   transition: transform 0.3s ease-out, opacity 0.15s ease-out;
 }
 
-.start-game:hover {
+.start-game-btn:hover,
+.restart-game-btn:hover {
   opacity: 0.92;
 }
 
-.start-game:active {
+.start-game-btn:active,
+.restart-game-btn:active {
   transform: scale(0.97);
 }
 
