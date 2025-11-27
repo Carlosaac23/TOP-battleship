@@ -6,7 +6,7 @@ const playerName = document.querySelector('.player__container-name');
 const playerBoard = document.querySelector('.player__container-board');
 
 const computerContainer = document.querySelector('.computer__container');
-const computerBoard = document.querySelector('.computer__container.board');
+const computerBoard = document.querySelector('.computer__container-board');
 
 const restartGameBtn = document.querySelector('.restart-game-btn');
 
@@ -20,6 +20,7 @@ function startGame() {
   computerContainer.style.display = 'flex';
   playerName.textContent = testPlayer.name;
   playerBoard.style.display = 'grid';
+  computerBoard.style.display = 'grid';
   restartGameBtn.style.display = 'block';
 
   const playerGameboard = testPlayer.board.board;
@@ -38,11 +39,9 @@ function startGame() {
   const computerGameboard = testComputerPlayer.board.board;
   computerGameboard.forEach(row => {
     const boardEl = document.createElement('div');
-    console.log(boardEl);
     console.log(row);
 
     row.forEach(cell => {
-      console.log(cell);
       const cellEl = document.createElement('div');
       cellEl.classList.add('cell');
       cellEl.textContent = cell.state;
