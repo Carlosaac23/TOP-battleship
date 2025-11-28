@@ -68,6 +68,14 @@ export class Gameboard {
       return cell.state;
     }
   }
+
+  reset() {
+    this.board = new Array(10).fill(null).map(() => {
+      return new Array(10)
+        .fill(null)
+        .map(() => ({ state: 'empty', ship: null }));
+    });
+  }
 }
 
 export class Player {
