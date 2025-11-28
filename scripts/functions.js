@@ -40,17 +40,21 @@ function renderComputerBoard() {
   computerBoard.style.display = 'grid';
 
   const computerGameboard = computerPlayer.board.board;
-  computerGameboard.forEach(row => {
+  computerGameboard.forEach((row, rowIndex) => {
     const boardEl = document.createElement('div');
     console.log(row);
 
-    row.forEach(cell => {
+    row.forEach((cell, cellIndex) => {
       const cellEl = document.createElement('div');
       const cellClass =
         cell.state === 'ship' ? 'cell-empty' : `cell-${cell.state}`;
       cellEl.classList.add('cell', cellClass);
       boardEl.appendChild(cellEl);
       computerBoard.appendChild(boardEl);
+      console.log(cellEl);
+      cellEl.addEventListener('click', () =>
+        attackEnemyShip(rowIndex, cellIndex)
+      );
     });
   });
 }
@@ -105,4 +109,11 @@ function placeShipRandomly(board) {
       }
     }
   });
+}
+
+function attackEnemyShip(rowIndex, colIndex) {
+  humanPlayer.attack(computerPlayer.board, rowIndex, colIndex);
+  renderComputerBoard();
+  computerPlayer.attack(humanPlayer.board);
+  renderPlayerBoard();
 }
