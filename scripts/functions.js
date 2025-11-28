@@ -6,6 +6,8 @@ import {
   finishGameBtn,
   gameContainer,
   humanPlayer,
+  inputName,
+  inputNameContainer,
   playerBoard,
   playerContainer,
   playerName,
@@ -15,7 +17,7 @@ import {
 
 function renderPlayerBoard() {
   playerContainer.style.display = 'flex';
-  playerName.textContent = humanPlayer.name;
+  playerName.textContent = inputName.value;
   playerBoard.innerHTML = ''; // Prevent re-render again the board after finish the game
   playerBoard.style.display = 'grid';
 
@@ -56,6 +58,7 @@ export function startGame() {
   restartGameBtn.style.display = 'block';
   finishGameBtn.style.display = 'block';
   gameContainer.style.display = 'flex';
+  inputNameContainer.style.display = 'none';
 
   placeShipRandomly(humanPlayer.board);
   placeShipRandomly(computerPlayer.board);
@@ -66,6 +69,8 @@ export function startGame() {
 export function finishGame() {
   gameContainer.style.display = 'none';
   startGameBtn.style.display = 'block';
+  inputName.value = '';
+  inputNameContainer.style.display = 'flex';
   humanPlayer.board.reset();
   computerPlayer.board.reset();
 }
