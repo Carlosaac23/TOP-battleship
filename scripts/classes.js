@@ -87,8 +87,9 @@ export class ComputerPlayer {
   }
 
   attack(enemyBoard) {
-    const randomRow = Math.floor(Math.random() * 10);
-    const randomCol = Math.floor(Math.random() * 10);
+    const MAX_ROW_COL_BOARD = 10;
+    const randomRow = Math.floor(Math.random() * MAX_ROW_COL_BOARD);
+    const randomCol = Math.floor(Math.random() * MAX_ROW_COL_BOARD);
     return enemyBoard.receiveAttack(randomRow, randomCol);
   }
 }
