@@ -26,9 +26,16 @@ body {
   letter-spacing: 0.8px;
 }
 
+.bottom-buttons {
+  width: 80%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
 .start-game-btn,
-.restart-game-btn {
-  display: block;
+.restart-game-btn,
+.finish-game-btn {
   margin: 0 auto;
   border: none;
   border-radius: 6px;
@@ -41,17 +48,20 @@ body {
   transition: transform 0.3s ease-out, opacity 0.15s ease-out;
 }
 
-.restart-game-btn {
+.restart-game-btn,
+.finish-game-btn {
   margin: 2rem 0;
 }
 
 .start-game-btn:hover,
-.restart-game-btn:hover {
+.restart-game-btn:hover,
+.finish-game-btn:hover {
   opacity: 0.92;
 }
 
 .start-game-btn:active,
-.restart-game-btn:active {
+.restart-game-btn:active,
+.finish-game-btn:active {
   transform: scale(0.97);
 }
 
