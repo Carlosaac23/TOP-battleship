@@ -46,7 +46,9 @@ function renderComputerBoard() {
 
     row.forEach(cell => {
       const cellEl = document.createElement('div');
-      cellEl.classList.add('cell', `cell-${cell.state}`);
+      const cellClass =
+        cell.state === 'ship' ? 'cell-empty' : `cell-${cell.state}`;
+      cellEl.classList.add('cell', cellClass);
       boardEl.appendChild(cellEl);
       computerBoard.appendChild(boardEl);
     });
