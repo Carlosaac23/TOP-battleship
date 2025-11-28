@@ -1,4 +1,4 @@
-import { ComputerPlayer, Player } from './classes.js';
+import { ComputerPlayer, Player, Ship } from './classes.js';
 
 const gameContainer = document.querySelector('.game-container');
 const startGameBtn = document.querySelector('.start-game-btn');
@@ -62,6 +62,8 @@ function startGame() {
   finishGameBtn.style.display = 'block';
   gameContainer.style.display = 'flex';
 
+  placeShipRandomly(humanPlayer.board);
+  placeShipRandomly(computerPlayer.board);
   renderPlayerBoard();
   renderComputerBoard();
 }
@@ -69,4 +71,34 @@ function startGame() {
 function finishGame() {
   gameContainer.style.display = 'none';
   startGameBtn.style.display = 'block';
+  humanPlayer.board.reset();
+  computerPlayer.board.reset();
+}
+
+function placeShipRandomly(board) {
+  const carrier = new Ship(5);
+  const battleship = new Ship(4);
+  const cruiser = new Ship(3);
+  const submarine = new Ship(3);
+  const destroyer = new Ship(2);
+  const ships = [carrier, battleship, cruiser, submarine, destroyer];
+
+  ships.forEach(ship => {
+    let placed = false;
+
+    while (!placed) {
+      try {
+        const MAX_ROW_COL_BOARD = 10;
+        const randomRow = Math.floor(Math.random() * MAX_ROW_COL_BOARD);
+        const randomCol = Math.floor(Math.random() * MAX_ROW_COL_BOARD);
+        const orientations = ['vertical', 'horizontal'];
+        const randomOrientation =
+          orientations[Math.floor(Math.random() * orientations.length)];
+        board.placeShip(ship, [randomRow, randomCol], randomOrientation);
+        placed = true;
+      } catch (error) {
+        console.error(error);
+      }
+    }
+  });
 }
