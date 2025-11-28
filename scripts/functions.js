@@ -42,7 +42,6 @@ function renderComputerBoard() {
   const computerGameboard = computerPlayer.board.board;
   computerGameboard.forEach((row, rowIndex) => {
     const boardEl = document.createElement('div');
-    console.log(row);
 
     row.forEach((cell, cellIndex) => {
       const cellEl = document.createElement('div');
@@ -51,7 +50,6 @@ function renderComputerBoard() {
       cellEl.classList.add('cell', cellClass);
       boardEl.appendChild(cellEl);
       computerBoard.appendChild(boardEl);
-      console.log(cellEl);
       cellEl.addEventListener('click', () =>
         attackEnemyShip(rowIndex, cellIndex)
       );
