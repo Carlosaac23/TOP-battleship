@@ -15,14 +15,16 @@ const finishGameBtn = document.querySelector('.finish-game-btn');
 startGameBtn.addEventListener('click', startGame);
 finishGameBtn.addEventListener('click', finishGame);
 
+const humanPlayer = new Player('Carlos');
+const computerPlayer = new ComputerPlayer();
+
 function renderPlayerBoard() {
-  const testPlayer = new Player('Carlos');
   playerContainer.style.display = 'flex';
-  playerName.textContent = testPlayer.name;
+  playerName.textContent = humanPlayer.name;
   playerBoard.innerHTML = ''; // Prevent re-render again the board after finish the game
   playerBoard.style.display = 'grid';
 
-  const playerGameboard = testPlayer.board.board;
+  const playerGameboard = humanPlayer.board.board;
   playerGameboard.forEach(row => {
     const boardEl = document.createElement('div');
 
@@ -36,12 +38,11 @@ function renderPlayerBoard() {
 }
 
 function renderComputerBoard() {
-  const testComputerPlayer = new ComputerPlayer();
   computerContainer.style.display = 'flex';
   computerBoard.innerHTML = ''; // Prevent re-render again the board after finish the game
   computerBoard.style.display = 'grid';
 
-  const computerGameboard = testComputerPlayer.board.board;
+  const computerGameboard = computerPlayer.board.board;
   computerGameboard.forEach(row => {
     const boardEl = document.createElement('div');
     console.log(row);
