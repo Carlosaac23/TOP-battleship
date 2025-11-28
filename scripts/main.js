@@ -12,16 +12,11 @@ const restartGameBtn = document.querySelector('.restart-game-btn');
 
 startGameBtn.addEventListener('click', startGame);
 
-function startGame() {
+function renderPlayerBoard() {
   const testPlayer = new Player('Carlos');
-  const testComputerPlayer = new ComputerPlayer();
-  startGameBtn.style.display = 'none';
   playerContainer.style.display = 'flex';
-  computerContainer.style.display = 'flex';
   playerName.textContent = testPlayer.name;
   playerBoard.style.display = 'grid';
-  computerBoard.style.display = 'grid';
-  restartGameBtn.style.display = 'block';
 
   const playerGameboard = testPlayer.board.board;
   playerGameboard.forEach(row => {
@@ -35,6 +30,12 @@ function startGame() {
       playerBoard.appendChild(boardEl);
     });
   });
+}
+
+function renderComputerBoard() {
+  const testComputerPlayer = new ComputerPlayer();
+  computerContainer.style.display = 'flex';
+  computerBoard.style.display = 'grid';
 
   const computerGameboard = testComputerPlayer.board.board;
   computerGameboard.forEach(row => {
@@ -49,4 +50,12 @@ function startGame() {
       computerBoard.appendChild(boardEl);
     });
   });
+}
+
+function startGame() {
+  startGameBtn.style.display = 'none';
+  restartGameBtn.style.display = 'block';
+
+  renderPlayerBoard();
+  renderComputerBoard();
 }
