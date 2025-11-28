@@ -29,7 +29,6 @@ function renderPlayerBoard() {
     row.forEach(cell => {
       const cellEl = document.createElement('div');
       cellEl.classList.add('cell', `cell-${cell.state}`);
-      cellEl.textContent = cell.state;
       boardEl.appendChild(cellEl);
       playerBoard.appendChild(boardEl);
     });
@@ -50,7 +49,6 @@ function renderComputerBoard() {
     row.forEach(cell => {
       const cellEl = document.createElement('div');
       cellEl.classList.add('cell', `cell-${cell.state}`);
-      cellEl.textContent = cell.state;
       boardEl.appendChild(cellEl);
       computerBoard.appendChild(boardEl);
     });
