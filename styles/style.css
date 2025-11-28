@@ -120,6 +120,11 @@ body {
   aspect-ratio: 1 /1;
 }
 
+.cell:hover {
+  background-color: #d6d6d6;
+  cursor: pointer;
+}
+
 .cell-empty {
   background-color: #fafafa;
 }
