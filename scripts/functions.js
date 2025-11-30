@@ -82,7 +82,7 @@ export function finishGame() {
   computerPlayer.board.reset();
 }
 
-function restartGame() {}
+export function restartGame() {}
 
 function placeShipRandomly(board) {
   const carrier = new Ship(5);
