@@ -1,5 +1,5 @@
 import { ComputerPlayer, Player } from './classes.js';
-import { finishGame } from './functions.js';
+import { finishGame, restartGame } from './functions.js';
 import { main } from './main.js';
 
 export const gameContainer = document.querySelector('.game-container');
@@ -19,6 +19,7 @@ export const finishGameBtn = document.querySelector('.finish-game-btn');
 
 startGameBtn.addEventListener('click', main);
 finishGameBtn.addEventListener('click', finishGame);
+restartGameBtn.addEventListener('click', restartGame);
 
 export const inputNameContainer = document.querySelector('.name-container');
 export const inputName = document.querySelector('.name-input');
