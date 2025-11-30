@@ -147,18 +147,36 @@ body {
 /* Responsive Design */
 @media screen and (min-width: 640px) {
   .game-container {
-    flex-direction: row;
+    width: 80%;
+  }
+
+  .name-container {
+    max-width: 70rem;
   }
 }
 
 @media screen and (min-width: 768px) {
   .game-container {
+    width: 90%;
     flex-direction: row;
+  }
+
+  .bottom-buttons {
+    width: 90%;
+    justify-content: start;
+    gap: 1rem;
   }
 }
 
 @media screen and (min-width: 1024px) {
   .game-container {
     flex-direction: row;
+    max-width: 100rem;
+  }
+
+  .bottom-buttons {
+    width: 40rem;
+    justify-content: space-between;
+    gap: 1rem;
   }
 }
