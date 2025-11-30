@@ -1,5 +1,6 @@
 import { Ship } from './classes.js';
 import {
+  bottomButtonsContainer,
   computerBoard,
   computerContainer,
   computerPlayer,
@@ -72,6 +73,7 @@ export function startGame() {
 
 export function finishGame() {
   gameContainer.style.display = 'none';
+  bottomButtonsContainer.style.display = 'none';
   startGameBtn.style.display = 'block';
   inputName.value = '';
   inputNameContainer.style.display = 'flex';
