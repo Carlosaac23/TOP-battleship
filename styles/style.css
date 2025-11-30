@@ -138,7 +138,7 @@ body {
 }
 
 .cell-hit {
-  background-image: url('../images/fire.svg');
+  background-image: url('../icons/fire.svg');
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
