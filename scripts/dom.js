@@ -13,6 +13,7 @@ export const computerBoard = document.querySelector(
 );
 
 export const startGameBtn = document.querySelector('.start-game-btn');
+export const bottomButtonsContainer = document.querySelector('.bottom-buttons');
 export const restartGameBtn = document.querySelector('.restart-game-btn');
 export const finishGameBtn = document.querySelector('.finish-game-btn');
 
