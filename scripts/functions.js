@@ -63,6 +63,7 @@ export function startGame() {
   restartGameBtn.style.display = 'block';
   finishGameBtn.style.display = 'block';
   gameContainer.style.display = 'flex';
+  bottomButtonsContainer.style.display = 'flex';
   inputNameContainer.style.display = 'none';
 
   placeShipRandomly(humanPlayer.board);
